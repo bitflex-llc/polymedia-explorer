@@ -75,11 +75,13 @@ function Item({
 function ObjectDetailPanel({
 	panelContent,
 	headerContent,
+	openInitially = false,
 }: {
 	panelContent: ReactNode;
 	headerContent?: ReactNode;
+	openInitially?: boolean;
 }) {
-	const [open, setOpen] = useState(false);
+	const [open, setOpen] = useState(openInitially);
 	return (
 		<Collapsible.Root open={open} onOpenChange={setOpen}>
 			<div className="flex flex-wrap items-center justify-between">
@@ -162,6 +164,7 @@ function ObjectChangeEntries({ changeEntries, type, isDisplay }: ObjectChangeEnt
 			({ packageId, modules }) => (
 				<ObjectDetailPanel
 					key={packageId}
+					openInitially={true}
 					panelContent={
 						<div className="mt-2 flex flex-col gap-2">
 							<Item label={ItemLabels.package} packageId={packageId} />
