@@ -9,6 +9,8 @@ export const getOwnerType = (change: SuiObjectChange) => {
 		if ("AddressOwner" in change.owner) return "AddressOwner";
 		if ("ObjectOwner" in change.owner) return "ObjectOwner";
 		if ("Shared" in change.owner) return "Shared";
+		if ("Immutable" in change.owner) return "Immutable";
+		return "Unknown";
 	}
 	return change.owner;
 };

@@ -208,8 +208,12 @@ function OwnerCard({
 						</Text>
 					) : "ObjectOwner" in objOwner ? (
 						<ObjectLink objectId={objOwner.ObjectOwner} />
-					) : (
+					) : "AddressOwner" in objOwner ? (
 						<AddressOwner address={objOwner.AddressOwner} />
+					) : (
+						<Text variant="pBodySmall/medium" color="gray-90">
+							Unknown
+						</Text>
 					)}
 				</Description>
 			)}

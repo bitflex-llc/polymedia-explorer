@@ -32,6 +32,8 @@ export function getOwnerStr(owner: ObjectOwner): string {
 		if ("AddressOwner" in owner) return owner.AddressOwner;
 		if ("ObjectOwner" in owner) return owner.ObjectOwner;
 		if ("Shared" in owner) return "Shared";
+		if ("Immutable" in owner) return "Immutable";
+		return "Unknown";
 	}
 	return owner;
 }
