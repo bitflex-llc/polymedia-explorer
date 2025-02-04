@@ -21,7 +21,7 @@ function RedirectWithId({ base }: { base: string }) {
 	return <Navigate to={`/${base}/${params.id}${search}`} replace />;
 }
 
-export const router = createBrowserRouter([
+export const router: any = createBrowserRouter([
 	{
 		path: "/",
 		element: <Layout />,
