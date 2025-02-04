@@ -311,10 +311,17 @@ type ObjectChangesProps = {
 
 export function ObjectChanges({ objectSummary }: ObjectChangesProps) {
 	if (!objectSummary) return null;
-
+	const sortedObjectSummary: ObjectChangeSummary = {
+		published: objectSummary.published,
+		created: objectSummary.created,
+		deleted: objectSummary.deleted,
+		transferred: objectSummary.transferred,
+		mutated: objectSummary.mutated,
+		wrapped: objectSummary.wrapped,
+	};
 	return (
 		<>
-			{Object.entries(objectSummary).map(([type, changes]) => (
+			{Object.entries(sortedObjectSummary).map(([type, changes]) => (
 				<ObjectChangeEntriesCards key={type} type={type as SuiObjectChangeTypes} data={changes} />
 			))}
 		</>
