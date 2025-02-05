@@ -57,7 +57,7 @@ Expose the local server on port 3000 to the internet using Localtunnel.
 ## How to update the repo
 
 ```bash
-pnpm upgrade --latest --recursive
+pnpm upgrade --recursive
 ```
 
 No longer viable:
@@ -68,5 +68,3 @@ pnpm add @headlessui/react@1 react-resizable-panels@0.0.39 prism-react-renderer@
 cd ../ui
 pnpm add cmdk@0
 ```
-
-TODO: upgrade the dependencies above to their latest versions.
