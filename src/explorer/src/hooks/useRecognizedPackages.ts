@@ -22,6 +22,7 @@ export function useRecognizedPackages() {
 			/* BURRY */ "0x6db9a7bb22829898fd281879778a175120ebfc77eafc1f8ee341654cfc3f8dc2",
 			/* CETUS */ "0x6864a6f921804860930db6ddbe2e16acdf8504495ea7481637a1c8b9a8fe54b",
 			/* DEEP */ "0xdeeb7a4662eec9f2f3def03fb937a663dddaa2e215b8078a284d026b7946c270",
+			/* ETH (Sui Bridge) */ "0xd0e89b2af5e4910726fbcd8b8dd37bb79b29e5f83f7491bca830e94f7f226d29",
 			/* FUD */ "0x76cb819b01abed502bee8a702b4c2d547532c12f25001c9dea795a5e631c26f1",
 			/* HASUI */ "0xbde4ba4c2e274a60ce15c1cfff9e5c42e41654ac8b6d906a57efa4bd3c29f47d",
 			/* HHS */ "0x996374e9df45796fe8112663a37272af4d33e7531c67d21aaa5cc93b3d1ded5c",
