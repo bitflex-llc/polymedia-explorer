@@ -4,6 +4,7 @@
 import { useSuiClientContext } from "@mysten/dapp-kit";
 import { KIOSK_ITEM, KioskClient, KioskItem, KioskOwnerCap } from "@mysten/kiosk";
 import { SuiClient } from "@mysten/sui/client";
+import { normalizeSuiAddress } from "@mysten/sui/utils";
 import { useQuery } from "@tanstack/react-query";
 
 import { getKioskIdFromOwnerCap, ORIGINBYTE_KIOSK_OWNER_TOKEN } from "../utils/kiosk";
@@ -103,11 +104,12 @@ async function getSuiKioskContents(address: string, kioskClient: KioskClient) {
 export function useGetKioskContents(address?: string | null, disableOriginByteKiosk?: boolean) {
 	const { client: suiClient, network } = useSuiClientContext();
 	const kioskClient = useKioskClient();
+	const normalizedAddress = normalizeSuiAddress(address!);
 	return useQuery({
-		queryKey: ["get-kiosk-contents", address, disableOriginByteKiosk, network, kioskClient.network],
+		queryKey: ["get-kiosk-contents", normalizedAddress, disableOriginByteKiosk, network, kioskClient.network],
 		queryFn: async () => {
-			const suiKiosks = await getSuiKioskContents(address!, kioskClient);
-			const obKiosks = await getOriginByteKioskContents(address!, suiClient);
+			const suiKiosks = await getSuiKioskContents(normalizedAddress, kioskClient);
+			const obKiosks = await getOriginByteKioskContents(normalizedAddress, suiClient);
 			return [...suiKiosks, ...obKiosks];
 		},
 		select(data) {

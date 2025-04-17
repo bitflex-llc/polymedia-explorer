@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { useSuiClient } from "@mysten/dapp-kit";
+import { normalizeSuiAddress } from "@mysten/sui/utils";
 import { useQuery } from "@tanstack/react-query";
 
 // This should align with whatever names we want to be able to resolve.
@@ -34,13 +35,14 @@ export function useResolveSuiNSAddress(name?: string | null, enabled?: boolean) 
 export function useResolveSuiNSName(address?: string | null) {
 	const client = useSuiClient();
 	const enabled = useSuiNSEnabled();
+	const normalizedAddress = normalizeSuiAddress(address!);
 
 	return useQuery({
-		queryKey: ["resolve-suins-name", address],
+		queryKey: ["resolve-suins-name", normalizedAddress],
 		queryFn: async () => {
 			// NOTE: We only fetch 1 here because it's the default name.
 			const { data } = await client.resolveNameServiceNames({
-				address: address!,
+				address: normalizedAddress,
 				limit: 1,
 			});
 

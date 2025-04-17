@@ -12,6 +12,7 @@ import { Pagination } from "~/ui/Pagination";
 import { PlaceholderTable } from "~/ui/PlaceholderTable";
 import { TableCard } from "~/ui/TableCard";
 import { genTableDataFromTxData } from "./transactions/TxCardUtils";
+import { normalizeSuiAddress } from "@mysten/sui/utils";
 
 export enum FILTER_VALUES {
 	INPUT = "InputObject",
@@ -108,9 +109,10 @@ function TransactionBlocksForAddress({
 		ToAddress: 0,
 	});
 
+
 	const { data, isPending, isFetching, isFetchingNextPage, fetchNextPage, hasNextPage } =
 		useGetTransactionBlocks(
-			{ [filterValue]: address } as TransactionFilter,
+			{ [filterValue]: normalizeSuiAddress(address) } as TransactionFilter,
 			undefined,
 			undefined,
 			type === "object", // useAltRpc
