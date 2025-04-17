@@ -24,9 +24,7 @@ export type ObjectChanges = {
 };
 export type ObjectChangesByOwner = Record<string, ObjectChanges>;
 
-export type ObjectChangeSummary = {
-	[K in SuiObjectChangeTypes]: ObjectChangesByOwner;
-};
+export type ObjectChangeSummary = Record<SuiObjectChangeTypes, ObjectChangesByOwner>;
 
 export const getObjectChangeSummary = (objectChanges: SuiObjectChangeWithDisplay[]) => {
 	if (!objectChanges) return null;

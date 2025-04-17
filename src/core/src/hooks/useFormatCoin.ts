@@ -98,10 +98,9 @@ export function useFormatCoin(
 	coinType?: string | null,
 	format: CoinFormat = CoinFormat.ROUNDED,
 ): FormattedCoin {
-	const fallbackSymbol = useMemo(() => (coinType ? getCoinSymbol(coinType) ?? "" : ""), [coinType]);
-
 	const queryResult = useCoinMetadata(coinType);
 	const { isFetched, data } = queryResult;
+	const fallbackSymbol = useMemo(() => (coinType ? data?.symbol ?? "" : ""), [coinType, data?.symbol]);
 
 	const formatted = useMemo(() => {
 		if (typeof balance === "undefined" || balance === null) return "";

@@ -12,7 +12,7 @@ type UseGetDelegatedStakesOptions = {
 export function useGetDelegatedStake(options: UseGetDelegatedStakesOptions) {
 	const client = useSuiClient();
 	const { address, ...queryOptions } = options;
-	const normalizedAddress = normalizeSuiAddress(address!);
+	const normalizedAddress = normalizeSuiAddress(address);
 	return useQuery({
 		queryKey: ["delegated-stakes", normalizedAddress],
 		queryFn: () => client.getStakes({ owner: normalizedAddress }),
