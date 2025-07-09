@@ -13,8 +13,12 @@ export enum Network {
 export const NetworkConfigs: Record<Network, { url: string }> = {
 	[Network.LOCAL]: { url: getFullnodeUrl("localnet") },
 	[Network.DEVNET]: { url: getFullnodeUrl("devnet") },
-	[Network.TESTNET]: { url: "https://testnet.suiet.app" },
-	[Network.MAINNET]: { url: "https://mainnet.suiet.app" },
+	// [Network.TESTNET]: { url: "https://rpc-testnet.suiscan.xyz" },
+	// [Network.MAINNET]: { url: "https://rpc-mainnet.suiscan.xyz" },
+	// [Network.TESTNET]: { url: "https://testnet.suiet.app" },
+	// [Network.MAINNET]: { url: "https://mainnet.suiet.app" },
+	[Network.TESTNET]: { url: getFullnodeUrl("testnet") },
+	[Network.MAINNET]: { url: getFullnodeUrl("mainnet") },
 };
 
 const defaultClientMap = new Map<Network | string, SuiClient>();
