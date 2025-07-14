@@ -26,7 +26,7 @@ const defaultClientMap = new Map<Network | string, SuiClient>();
 // NOTE: This class should not be used directly in React components, prefer to use the useSuiClient() hook instead
 export const createSuiClient = (network: Network | string) => {
 	const existingClient = defaultClientMap.get(network);
-	if (existingClient) return existingClient;
+	if (existingClient) return existingClient ; 
 
 	const networkUrl = network in Network ? NetworkConfigs[network as Network].url : network;
 
@@ -36,3 +36,4 @@ export const createSuiClient = (network: Network | string) => {
 	defaultClientMap.set(network, client);
 	return client;
 };
+
