@@ -29,10 +29,10 @@ export default defineConfig({
         },
     },
     preview: {
-        port: 3001,
+        port: 3000,
     },
     server: {
-        port: 3001,
+        port: 3000,
         allowedHosts: ["sui.bcflex.com"],
     },
 });
