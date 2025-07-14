@@ -18,7 +18,7 @@ export const NetworkConfigs: Record<Network, { url: string }> = {
 	// [Network.TESTNET]: { url: "https://testnet.suiet.app" },
 	// [Network.MAINNET]: { url: "https://mainnet.suiet.app" },
 	[Network.TESTNET]: { url: getFullnodeUrl("testnet") },
-	[Network.MAINNET]: { url: getFullnodeUrl("mainnet") },
+	[Network.MAINNET]: { url: "http://sui.bcflex.com:9000" },
 };
 
 const defaultClientMap = new Map<Network | string, SuiClient>();
